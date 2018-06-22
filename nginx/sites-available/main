@@ -1,0 +1,14 @@
+## Configuration for the main site.
+server {
+    root /var/www/html;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name chunli.me www.chunli.me;
+
+    location / {
+    }
+
+    location ~ /.well-known {
+        allow all;
+    }
+}
