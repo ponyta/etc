@@ -1,9 +1,17 @@
 ## Configuration for the main site.
+
+server {
+  listen 80 default_server;
+  listen [::]:80 default_server;
+  server_name _;
+  return 301 https://$host$request_uri;
+}
+
 server {
     root /var/www/html;
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
     server_name chunli.me www.chunli.me;
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
     location / {
     }
