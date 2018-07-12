@@ -1,0 +1,36 @@
+#
+# cgit config
+#
+
+css=/cgit.css
+logo=/cgit.png
+
+root-title=Chun's Git Repository
+root-desc=A simple, fast web interface for my personal git repositories.
+root-readme=/var/www/htdocs/cgit/about.html
+
+# Following lines work with the above Apache config
+#css=/cgit-css/cgit.css
+#logo=/cgit-css/cgit.png
+
+# Following lines work with the above Lighttpd config
+#css=/cgit/cgit.css
+#logo=/cgit/cgit.png
+
+# Allow http transport git clone
+#enable-http-clone=0
+
+virtual-root=/
+
+# if you do not want that webcrawler (like google) index your site
+robots=noindex, nofollow
+
+# syntax highlighting
+source-filter=/var/www/htdocs/cgit/filters/syntax-highlighting.py
+
+enable-git-config=1
+repository-sort=age
+branch-sort=age
+
+# root directory for repos
+scan-path=/home/git/
