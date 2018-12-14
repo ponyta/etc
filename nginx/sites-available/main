@@ -10,13 +10,14 @@ server {
 server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    root /var/www/html;
+    root /home/ponyta/personal-site/webapp;
     server_name chunli.me www.chunli.me _;
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
     location / {
-        root /var/www/html;
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ponyta/personal-site/webapp.sock;
     }
 
     location ~ /.well-known {
